@@ -35,3 +35,7 @@
 // console.log(asa1)
 // console.log(asa2)
 
+const fs = require ("fs");
+
+const datos = fs.readFileSync("./test.txt", "utf-8");
+console.log(datos);
