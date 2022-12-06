@@ -1,5 +1,6 @@
 
-const fs = require ('fs')
+const fs = require ('fs');
+const { get } = require('http');
 
 class Contenedor {
     constructor (nombreArchivo){
@@ -41,7 +42,7 @@ class Contenedor {
     }
 } 
 
-
+console.log(getAll())
 
 module.exports = Contenedor;
 
