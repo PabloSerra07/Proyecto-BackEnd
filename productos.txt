@@ -1,17 +1,18 @@
 [
- {
-   "titulo": "Escuadra",
-   "precio": 123.45,
-   "id": 1
- },
- {
-   "titulo": "Calculadora",
-   "precio": 234.56,
-   "id": 2
- },
- {
-   "titulo": "Globo Terráqueo",
-   "precio": 345.67,
-   "id": 3
- }
+	{
+		"titulo": "Escuadra",
+		"precio": 123.45,
+		"id": 1
+	},
+	{
+		"titulo": "Calculadora",
+		"precio": 234.56,
+		"id": 2
+	},
+	{
+		"titulo": "Globo Terráqueo",
+		"precio": 345.67,
+		"id": 3
+	}
+	
 ]

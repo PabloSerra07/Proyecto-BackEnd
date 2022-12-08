@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "apimascotas",
   "main": "entrega02.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

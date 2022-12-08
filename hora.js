@@ -17,3 +17,5 @@ function mostrarSaludo(){
     texto = "Buenas Noches";
     
     }}
+
+    export default mostrarSaludo();
