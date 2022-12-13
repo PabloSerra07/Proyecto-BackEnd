@@ -13,34 +13,34 @@
 // })
 
 
-let hora = new Date();
-console.log(hora.getHours())
-const fecha = new Date()
-console.log(fecha.getDate())
-//// otra forma de generar un servidor
+// let hora = new Date();
+// console.log(hora.getHours())
+// const fecha = new Date()
+// console.log(fecha.getDate())
+// //// otra forma de generar un servidor
 
-const express = require(`express`);
+// const express = require(`express`);
 
-const app = express();
+// const app = express();
 
-const PORT = 8080
+// const PORT = 8080
 
-const server = app.listen(PORT, () => {
-    console.log(`Servidor http escuchando en el puerto ${server.address().port}`)
-})
-server.on("error", error => console.log(`Error en servidor ${error}`))
+// const server = app.listen(PORT, () => {
+//     console.log(`Servidor http escuchando en el puerto ${server.address().port}`)
+// })
+// server.on("error", error => console.log(`Error en servidor ${error}`))
 
-app.get('/', (peticion, respuesta) => {
-    respuesta.send({ mensaje: '<h1> Nivel 1 </>' })
-});
+// app.get('/', (peticion, respuesta) => {
+//     respuesta.send({ mensaje: '<h1> Nivel 1 </>' })
+// });
 
-app.get('/visitas', (peticion, respuesta) => {
-    respuesta.send({ mensaje: 'visitas 10' })
-});
+// app.get('/visitas', (peticion, respuesta) => {
+//     respuesta.send({ mensaje: 'visitas 10' })
+// });
 
-app.get('/fyh', (peticion, respuesta) => {
-    respuesta.send({mensaje: hora.getHours(), mensaje: fecha.getDate() })
-});
+// app.get('/fyh', (peticion, respuesta) => {
+//     respuesta.send({mensaje: hora.getHours(), mensaje: fecha.getDate() })
+// });
 
 
 

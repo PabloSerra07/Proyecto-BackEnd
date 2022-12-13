@@ -1,8 +1,9 @@
 {
-  "name": "backend",
+  "type": "module",
+  "name": "entrega04",
   "version": "1.0.0",
-  "description": "apimascotas",
-  "main": "entrega02.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
