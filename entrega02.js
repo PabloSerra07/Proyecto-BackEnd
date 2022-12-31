@@ -67,3 +67,4 @@ let ejemplo = new Contenedor(`./productos.txt`);
 
 /* delted by Id  */
 console.log(ejemplo.deleteById(2))
+
