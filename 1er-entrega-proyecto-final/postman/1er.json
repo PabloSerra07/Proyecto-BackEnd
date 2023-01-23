@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "89d131bd-9f02-4f22-946e-a649df7ba5fb",
+		"name": "1er-entrga-p/final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25445503"
+	},
+	"item": [
+		{
+			"name": "productos",
+			"item": [
+				{
+					"name": "Guardar Producto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"2222\",\r\n    \"nombre\": \"dos\",\r\n    \"descripcion\": \"sdfsdfgsdfsdfdsfsdfsdfsdfsdfsdfdsfsdfsdfdsfsdfsdfsdfsdf\",\r\n    \"codigo\": 53453454,\r\n    \"precio\": \"$1,637.67\",\r\n    \"foto\": \"http://funciona hdp\",\r\n    \"stock\": 10000\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/productos/guardar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"guardar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put producto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1214\",\r\n    \"nombre\": \"elc123o2222\",\r\n    \"descripcion\": \"sdfsdfgsdfsdfdsfsdfsdfsdfsdfsdfdsfsdfsdfdsfsdfsdfsdfsdf\",\r\n    \"codigo\": 53453454,\r\n    \"precio\": \"$1,637.67\",\r\n    \"foto\": \"http://funciona hdp\",\r\n    \"stock\": 10000\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/productos/1213",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"1213"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Productos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/productos/1213",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"productos",
+								"1213"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "carrito",
+			"item": [
+				{
+					"name": "Create Carrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/carrito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/carrito/78ea77bb2264cbe7754e62f188920226cd4e108ab8fbf88ca3e9b9a27537b9df/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito",
+								"78ea77bb2264cbe7754e62f188920226cd4e108ab8fbf88ca3e9b9a27537b9df",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add product to a Given Carrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"2222\",\n    \"nombre\": \"doasdasas\",\n    \"descripcion\": \"sdfsdfgsdfsdasdasdasdasdasdafdsfsdfsdfsdfsdfsdfdsfsdfsdfdsfsdfsdfsdfsdf\",\n    \"codigo\": 53453454,\n    \"precio\": \"$1,637.67\",\n    \"foto\": \"http://funciona hdp\",\n    \"stock\": 10000\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/carrito/ae6dd3bebb3af95e2566c3e67471683102c5ed7744ab3984d9ce79d4704643d/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito",
+								"ae6dd3bebb3af95e2566c3e67471683102c5ed7744ab3984d9ce79d4704643d",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product by Id in Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/carrito/id/productos/id_prod",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"carrito",
+								"id",
+								"productos",
+								"id_prod"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
