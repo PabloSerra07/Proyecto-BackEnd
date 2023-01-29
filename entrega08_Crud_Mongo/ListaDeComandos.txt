@@ -1,0 +1,216 @@
+ENTREGA_CLASE_18
+----------------
+
+En el CMD de la PC:( en este caso win 10), escribimos mongod --> y levantamos
+ el servidor de mongo, 
+que espera por una conexion. Previo haber instalado MongoDB Compass, y si es necesario, la shell de mongo.
+En la shell o CMD, escribimos el numero de conexion visto al abrir una conexion en MongoDB Compass
+( localhost:27017 ), y nuevamente en la shell arrancamos con: 
+
+> use ecommerce
+already on db ecommerce
+> use ecommerce
+switched to db ecommerce
+
+ecommerce> db.createCollection('mensajes')
+{ ok: 1 }
+ecommerce> db.createCollection('productos')
+{ ok: 1 }
+ecommerce> show collections
+mensajes
+productos
+ecommerce> use mensajes
+switched to db mensajes
+//-------------------------------------------
+PUNTO 1 CONSIGNA
+----------------
+mensajes> 
+db.mensajes.insertMany([
+{"id": 88956, "age": 58, "name": "Hope Nieves", "email": "hopenieves@geekmosis.com", "mensaje": "Et ea ex mollit ea. Cupidatat proident amet.\r\n"},
+{"id": 75294, "age": 67, "name": "Steele Ward", "email": "steeleward@geekmosis.com", "mensaje": "Ipsum in ut pariatur proident aute.\r\n"},
+{"id": 35587, "age": 27, "name": "Emilia Garza", "email": "emiliagarza@geekmosis.com", "mensaje": "Ipsum id aliqua elit proident velit amet Lorem culpa.\r\n"},
+{"id": 45729, "age": 28, "name": "Caroline Conrad", "email": "carolineconrad@geekmosis.com", "mensaje": "Elit incididunt ipsum et sit adipisicing.\r\n"},
+{"id": 45736, "age": 50, "name": "Franks Jones", "email": "franksjones@geekmosis.com", "mensaje": "Commodo dolore amet cupidatat pariatur dolor.\r\n" },
+{"id": 31806, "age": 37, "name": "Latonya Mclean", "email": "latonyamclean@geekmosis.com", "mensaje": "Exercitation laboris eiusmod et deserunt.\r\n"},
+{"id": 89173, "age": 36, "name": "Mcguire Chambers", "email": "mcguirechambers@geekmosis.com", "mensaje": "Enim nisi voluptate dolor pariatur.\r\n" },
+{"id": 58630, "age": 60, "name": "Leila Brooks", "email": "leilabrooks@geekmosis.com", "mensaje": "Ullamco consectetur veniam in veniam anim officia.\r\n" },
+{"id": 64735, "age": 70, "name": "Cantu Grant", "email": "cantugrant@geekmosis.com",  "mensaje": "Ea deserunt Lorem laboris ut quis ad tempor\n" },
+{"id": 56444, "age": 40, "name": "Glenn Melendez", "email": "glennmelendez@geekmosis.com", "mensaje": "Aute veniam eiusmod aute magna.\r\n" },
+])
+
+//------------------------------------------
+DEVUELVE LA SHELL DE MONGO:
+
+
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("63d2b72ef04d979abad9c50a"),
+    '1': ObjectId("63d2b72ef04d979abad9c50b"),
+    '2': ObjectId("63d2b72ef04d979abad9c50c"),
+    '3': ObjectId("63d2b72ef04d979abad9c50d"),
+    '4': ObjectId("63d2b72ef04d979abad9c50e"),
+    '5': ObjectId("63d2b72ef04d979abad9c50f"),
+    '6': ObjectId("63d2b72ef04d979abad9c510"),
+    '7': ObjectId("63d2b72ef04d979abad9c511"),
+    '8': ObjectId("63d2b72ef04d979abad9c512"),
+    '9': ObjectId("63d2b72ef04d979abad9c513"),
+  }
+}
+
+//----------------------------------------------
+
+
+//--------------------------------------------
+Carga datos para collection productos
+-------------------------------------
+
+ecommerce> db.productos.insertMany([
+  {"index": 0, "name": "Hoffman Ortiz", "age": 42, "email": "hoffmanortiz@suremax.com", "precio": 7352 },
+  {"index": 1, "name": "Potter Espinoza", "age": 105, "email": "potterespinoza@suremax.com", "precio": 6492 },
+  {"index": 2, "name": "Charmaine Camacho", "age": 102, "email": "charmainecamacho@suremax.com", "precio": 7694 },
+  {"index": 3, "name": "Bobbi Moses", "age": 46, "email": "bobbimoses@suremax.com", "precio": 6837 },
+  {"index": 4, "name": "Madge Landry", "age": 24, "email": "madgelandry@suremax.com", "precio": 804 },
+  {"index": 5, "name": "Alissa Ballard", "age": 107, "email": "alissaballard@suremax.com", "precio": 7526 },
+  {"index": 6, "name": "Angie Lambert", "age": 37, "email": "angielambert@suremax.com", "precio": 2375 },
+  {"index": 7, "name": "Hansen Rutledge", "age": 104, "email": "hansenrutledge@suremax.com", "precio": 6047 },
+  {"index": 8, "name": "Tran Koch", "age": 56, "email": "trankoch@suremax.com", "precio": 6024 },
+  {"index": 9, "name": "Kimberly Pacheco", "age": 116, "email": "kimberlypacheco@suremax.com", "precio": 6527 }
+]
+----------------------
+la consola me devuelve: 
+----------------------
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("63d33c57b982337924460a65"),
+    '1': ObjectId("63d33c57b982337924460a66"),
+    '2': ObjectId("63d33c57b982337924460a67"),
+    '3': ObjectId("63d33c57b982337924460a68"),
+    '4': ObjectId("63d33c57b982337924460a69"),
+    '5': ObjectId("63d33c57b982337924460a6a"),
+    '6': ObjectId("63d33c57b982337924460a6b"),
+    '7': ObjectId("63d33c57b982337924460a6c"),
+    '8': ObjectId("63d33c57b982337924460a6d"),
+    '9': ObjectId("63d33c57b982337924460a6e")
+  }
+}
+
+//---------------------------------------------
+PUNTO 2 CONSIGNA
+----------------
+
+//------------
+27017> use ecommerce --> entro en la base de datos : ecommerce
+switched to db ecommerce
+ecommerce> db.productos.findOneAndUpdate( {index: 0 }, { $set:{ precio: 100 } } ) --> selecciono
+ la coleccion "producto", y el documento con indice= 0, cambio el valor del campo (precio)--> por el
+ valor pedido de : 100;
+------------------------------
+//-----------
+en el indice : 1 --> cambio precio por el valor de: 120
+------------------------
+ecommerce> db.productos.findOneAndUpdate( {index: 1 }, { $set:{ precio: 120 } } )
+------------------------
+ecommerce> db.productos.findOneAndUpdate( {index: 2 }, { $set:{ precio: 580 } } )
+------------------------
+ecommerce> db.productos.findOneAndUpdate( {index: 3 }, { $set:{ precio: 900 } } )
+------------------------
+ecommerce> db.productos.findOneAndUpdate( {index: 4 }, { $set:{ precio: 1280 } } )
+------------------------
+ecommerce> db.productos.findOneAndUpdate( {index: 5 }, { $set:{ precio: 2300 } } )
+------------------------
+ecommerce> db.productos.findOneAndUpdate( {index: 6 }, { $set:{ precio: 2860 } } )
+------------------------
+ecommerce> db.productos.findOneAndUpdate( {index: 7 }, { $set:{ precio: 3350 } } )
+------------------------
+ecommerce> db.productos.findOneAndUpdate( {index: 8 }, { $set:{ precio: 4320 } } )
+------------------------
+ecommerce> db.productos.findOneAndUpdate( {index: 9 }, { $set:{ precio: 4990 } } )
+//------------------------------------------------------
+
+//---------------------------------------------
+PUNTO 3 CONSIGNA
+----------------
+
+Listar documentos de una col
+
+ecommerce> db.productos.find() --> devuelve todos los doc de la coll productos
+
+//---------------------------------------------
+PUNTO 4 CONSIGNA
+----------------
+ecommerce> db.productos.estimatedDocumentCount() --> cantidad de la coll = productos
+10
+ecommerce> db.mensajes.estimatedDocumentCount() --> cantidad de la coll = mensajes
+10
+
+//---------------------------------------------
+PUNTO 5 CONSIGNA
+----------------
+CRUD en colleccion : productos
+
+-------------- CREATE --------------
+ecommerce> db.productos.insert({index: 10, name: 'Gonzalo Rodrigo Pereyra', age: 47,
+ email: 'gonzalorodrigo030675@gmail.com', precio: 72400000})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("63d69138c482917337adb9ac") }
+}
+
+------------- READ --------------
+realizar consulta por nombre de producto
+
+1°-( listar los productos con precio menor a 1000 )
+ecommerce> db.productos.find({'precio': {$lt: 1000}} )
+
+2°-(listar productos con precios entre 1000-3000)
+ecommerce> db.productos.find( { $and: [ { precio: { $gte: 1000 } }, { precio:{$lt: 3000 } }] } )
+
+3°-( mostrar los productos mayores de precio a 3000 )
+ecommerce> db.productos.find({'precio': {$gte: 3000}} )
+
+4°-(traer el tercer nombre del tercer valor mas barato)
+ecommerce> db.productos.find({},{name:1, _id:0}).sort({price:1}).skip(2).limit(1)
+[ { name: 'Charmaine Camacho' } ]
+5°-(agregar un campo --> stock = 100, en todos los productos)
+ecommerce> db.productos.updateMany({},{$inc: {stock:100}}  )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 11,
+  modifiedCount: 11,
+  upsertedCount: 0
+}
+Para verificar = db.productos.find()
+
+6°-()
+
+//---------------------------------------------
+PUNTO 6 CONSIGNA
+----------------
+
+db.productos.updateMany({precio: {$gt: 4000}}, {$set: {stock: 0}});
+--------------------------------
+
+ecommerce> db.productos.updateMany({precio: {$gte: 4000}}, {$set: {stock: 0}});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+
+--------------------------------
+ecommerce> db.productos.deleteMany({precio: {$lt: 1000}});
+{ acknowledged: true, deletedCount: 0 }
+
+---------------------------------
+ecommerce> db.createUser({user:'Pepe', pwd:'as456', roles:[{role: 'read', db: 'ecommerce'}]})
+{ ok: 1 }
+
+
+

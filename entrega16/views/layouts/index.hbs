@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js" integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI" crossorigin="anonymous"></script>
+    <title>Productos desde el Backend</title>
+
+</head>
+<body>
+
+    {{{body}}}
+
+<script>
+    let ruta = `./mensajes.txt`
+    let id = 0;
+    
+    let socket = io.connect('http://localhost:8080', {forceNew:true});
+    function mostrarSaludo(){
+        let date = new Date();
+        let formatDate = '['+date.getDate() + '/' + (date.getMonth()+1) + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() +']' 
+        return formatDate
+    }
+    createFile = ()=>{
+        if (!fs.existsSync(this.ruta)){
+            fs.writeFileSync(this.ruta, `[]`)
+        }
+    }
+    save = async (objeto) => {
+        let data = await fs.promises.readFile(this.ruta, `utf8`)
+        let content = JSON.parse(data)
+        if(content.length ==0){
+            objeto.id = this.id;
+            content.push(objeto);
+            await fs.promises.writeFile(this.ruta, JSON.stringify(content, null, `\t`))
+        }
+        else{
+            this.id = content.length;
+            objeto.id = this.id;
+            content.push(objeto)
+            await fs.promises.writeFile(this.ruta, JSON.stringify(content, null, `\t`))
+        }
+    }
+        
+
+    socket.on('mensajes', function(msjs) {
+        
+        console.log(msjs);
+        let usuario = document.getElementById('inputtt')
+        document.getElementById('pp').innerHTML = msjs.map( msj => `Usuario: ${usuario.value} ${mostrarSaludo()}  : ${msj.mensaje}`).join('<br>')
+        createFile()
+        save(msjs.map( msj => `Usuario: ${usuario.value} ${mostrarSaludo()}  : ${msj.mensaje}`).join('<br>'))
+    });
+
+
+    let input = document.getElementById('inputt')
+    document.getElementById('buttonn').addEventListener('click', () => {
+        socket.emit('mensaje', input.value)
+    })
+</script>
+<script>const socket = io();</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>
