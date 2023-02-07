@@ -1,0 +1,109 @@
+<header>
+  <h1 style="color:blue;">Lista de productos</h1>
+</header>
+<main>
+  {{#if arrayProduct}}
+    <div class="table-responsive">
+      <table class="table table-dark">
+        <tr style="color: yellow;"> <th>Nombre</th> <th>Precio</th> <th>Thumbnail</th> </tr>
+        {{#each arrayProduct}}
+          <tr>
+            <td>{{this.title}}</td>
+            <td>{{this.price}}</td>
+            <td><img src="{{this.thumbnail}}" alt="Imagen del producto" style="width: 4rem;"></td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+  {{/if}}
+  {{#unless arrayProduct}}
+    <h3 class="alert alert-danger">{{err.message}}</h3>
+  {{/unless}}
+  </main>
+<footer>
+  <a href="/"><button class="btn btn-success mt-3 mb-5">Ir a añadir producto</button></a>
+</footer>
+
+
+
+
+
+{{!-- 
+
+<div class="container mt-2">
+        <div class="jumbotron">
+            <h1>Formulario</h1>
+
+              <form action="/datos" method="post">
+
+                <div class="form-group">
+                  <label for="nombre"><b>Nombre</b></label>
+                  <input type="text" id="nombre" class="form-control" name="nombre" />
+                </div>
+                <div class="form-group">
+                  <label for="precio"><b>Precio</b></label>
+                  <input type="number" id="precio" class="form-control" name="precio" />
+                </div>
+                <div class="form-group">
+                  <label for="url"><b>Url</b></label>
+                  <input type="text" id="url" class="form-control" name="url" />
+                </div>
+                <div class="form-group">
+                  <label for="stock"><b>Stock</b></label>
+                  <input type="number" id="stock" class="form-control" name="stock" />
+                </div>
+
+                <button id="enviar" type="submit" class="btn btn-success mt-3 mb-5">Enviar</button>
+              </form>
+
+
+{{#if productos.length}}
+
+  <div  class="table-responsive">
+    <table action="/datos" class="table table-dark">
+      <tr style="color: rgb(66, 61, 135);">
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Url</th>
+        <th>Stock</th>
+      </tr>
+      {{#each productos}}
+        <tr>
+          <td>{{nombre}}</td>
+          <td>{{precio}}</td>
+          <td>{{url}}</td>
+          <td>{{stock}}</td>
+
+        </tr>
+      {{/each}}
+    </table>
+
+    <div>
+
+    </div>
+  </div>
+{{else}}
+  <h3 class="alert alert-danger">No se encontraron datos</h3>
+{{/if}}
+<button
+        onclick={window.location.replace("/formulario")}
+        type="button"
+        class="btn btn-success"
+      >Volver</button>
+
+        </div>
+</div>
+
+
+
+<div class="container mt-2">
+    <div class="jumbotron">       
+      
+      <h1>Cliente Websocket</h1>
+          <input class="usuario" id="inputtt" type="text">
+          <input class="msj" id="inputt" type="text">
+          <button class="btn btn-primary" id="buttonn">Enviar</button>
+          <p id="pp"></p>
+          
+    </div>
+</div> --}}

@@ -214,3 +214,6 @@ ecommerce> db.createUser({user:'Pepe', pwd:'as456', roles:[{role: 'read', db: 'e
 
 
 
+mongo atlas 
+user pablo
+pass larenga123
