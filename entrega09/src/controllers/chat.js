@@ -1,4 +1,4 @@
-import knexChat from './knexChat.js';
+
 
 class Chat {
     constructor(knex, table) {

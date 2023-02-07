@@ -1,5 +1,4 @@
-import knexProducts from './knexProducts.js';
-
+import knex  from './knexProducts.js'
 //---------- CLASE CON TENEDOR ------------
 class Contenedor {
 
@@ -16,6 +15,7 @@ class Contenedor {
               throw error;
             }
           } 
+    
 //--------------------
         async getById(id) {
             try {

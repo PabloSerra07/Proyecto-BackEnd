@@ -22,8 +22,7 @@ let products = new Contenedor(knexProducts, 'products');
 
 //------- RUTAS ------
 router.get('/', async (req, res, next) => {
-  console.log('puto ale')
-  res.render('formNewProduct');
+    res.render('formNewProduct');
 });
 
 router.get("/products", async (req, res, next) => {
@@ -107,9 +106,9 @@ router.delete("/products/:id", async (req, res, next) => {
     }
     
     await products.deleteById(Number(req.params.id)).then((resolve) =>  {
-       
+    
       res.status(200).json({ message: `Producto con ID:${id} borrado con exito` });
-   
+  
     });
   } 
     catch (err) {

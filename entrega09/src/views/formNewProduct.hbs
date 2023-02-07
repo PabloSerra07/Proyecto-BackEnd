@@ -41,7 +41,7 @@
         </div>
         <button class="btn btn-success mt-3 mb-5">Enviar</button>
       </form>
-    </div>
+    
   </div>
 </main>
 <aside>
@@ -62,6 +62,7 @@
   <div class="container-fluid mt-3" id="chat">
     <h3>Centro de mensajes</h3>
    <!-- Aca cargo los mensajes de la BD de sqlite-->
+    <div class="jumbotron">
     <div id="messages"></div>
     <form
       class="form-inline"
@@ -84,10 +85,13 @@
         placeholder="Cuéntanos algo..."
         required
       />
-      <input class="btn btn-primary my-2" type="submit" value="Enviar!" />
+      <input class="btn btn-success" type="submit" value="Enviar!" />
     </form>
+    </div>
   </div>
 </aside>
+</div>
+
 <footer>
   <a href="/products">Ver lista de productos</a>
 </footer>
