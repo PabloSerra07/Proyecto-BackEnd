@@ -1,0 +1,17 @@
+firebase-adminsdk-rrhmz@ecommerce-cdec3.iam.gserviceaccount.com
+
+
+    GOOGLE_APPLICATION_CREDENTIALS
+--------------------------------------------------------------------------
+
+Installation
+
+npm i
+Resources
+
+    https://firebase.google.com/docs/admin/setup
+    https://firebase.google.com/docs/firestore/manage-data/delete-data
+    https://freefrontend.com/css-background-patterns/
+    https://www.bootstrapcdn.com/bootswatch/
+
+---------------------------------------------------------------
