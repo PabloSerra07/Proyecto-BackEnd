@@ -44,7 +44,7 @@ app.get('/datos', (req, res) => {
 
 
 
-app.post('/datos', (req, res) => {
+app.post('/formulario', (req, res) => {
     const {nombre, precio, url} = req.body
     const producto = {
         'nombre':nombre,
@@ -53,7 +53,7 @@ app.post('/datos', (req, res) => {
     }
     productos.push(producto)
     console.log(productos)
-    res.redirect('/datos')
+    res.redirect('/formulario')
 });
 
 
