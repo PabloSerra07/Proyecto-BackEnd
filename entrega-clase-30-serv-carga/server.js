@@ -16,6 +16,36 @@ import { fork } from "child_process";
 import dotenv from "dotenv"; dotenv.config();
 import minimist from "minimist";
 
+//---------------------------------------------------------
+import cluster from 'node:cluster';
+import http from 'node:http';
+import { cpus } from 'node:os';
+import process from 'node:process';
+
+//-------------------------------------
+const numCPUs = cpus().length;
+
+if (cluster.isPrimary) {
+  console.log(`Proceso Primario:  ${process.pid} está corriendo`);
+  console.log(`Numero de nucleos : ${numCPUs}`);
+
+   // Trabajadores.
+for (let i = 0; i < numCPUs; i++) {
+     
+   }
+
+  //  cluster.on('exit', (worker, code, signal) => {
+  //        console.log(`worker ${worker.process.pid} died`);
+//   });
+  } else {
+    cluster.fork();
+    cluster.on('exit', (worker, code, signal) => {
+   console.log(`Worker ${process.pid} started`);
+ })
+}
+
+//---------------------------------------------------------
+
 
 const args = minimist(process.argv.slice(2), []);
 
@@ -287,7 +317,6 @@ app.get("/info", (req, res) => {
     path: process.cwd(),
     pid: process.pid,
     folder: path.dirname(new URL(import.meta.url).pathname),
-    
   };
 
   res.render("info", { info });
@@ -311,7 +340,6 @@ app.get("/api/randoms", (req, res) => {
 
 //SERVIDOR
 // ----------------------------------------------|
-
 
 
 const PORT = args._[0] || args["port"] || args["p"] || 8080;

@@ -1,0 +1,14 @@
+<div id="registerContainer" class="container">
+    <div class="jumbotron py-3 mt-5">
+        <h1 style="color:blue;">Registro de usuario</h1>
+        <form action="/register" method="post" class="my-4">
+            <input type="text" id="name" class="form-control mb-2" name="name" placeholder="name" required>
+            <input type="email" id="email" class="form-control mb-2" name="email" placeholder="email" required>
+            <input type="text" id="password" class="form-control" name="password" placeholder="password" required>
+            <input type="submit" class="btn btn-success mt-4" id="btnRegister" value="Register">
+        </form>
+        <div class="border-top border-dark">
+            <a href="http://localhost:8080/login" class="btn btn-success mt-3" id="LoginBtn">ir a Login</a> 
+        </div>
+    </div>
+</div>
