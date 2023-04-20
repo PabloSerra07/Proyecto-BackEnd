@@ -3,7 +3,7 @@ import ApiProdsSQL from "./api/productos.js";
 import ApiMsjMongoDB from "./api/mensajes.js";
 import handlebars from "express-handlebars";
 import { Server } from "socket.io";
-import { createServer } from "http";
+import { createServer, request } from "http";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
@@ -11,8 +11,60 @@ import bcrypt from "bcrypt"
 import mongoose from "mongoose";
 import passport from "passport";
 import {Strategy as LocalStrategy} from 'passport-local'
+import path from "path";
+import { fork } from "child_process";
+import dotenv from "dotenv"; dotenv.config();
+import minimist from "minimist";
+import compression from 'compression';
 
-//--CONFIGURACION Y CONEXION A MONDODB USUARIOS
+//---------------------------------------------------------
+import cluster from 'node:cluster';
+import http from 'node:http';
+import { cpus } from 'node:os';
+import process from 'node:process';
+
+//-------------------------------------
+///---------------////////////
+const app = express();
+const server = createServer(app);
+const io = new Server(server);
+const apiProdsSQL = new ApiProdsSQL();
+const apiMsjMongoDB = new ApiMsjMongoDB();
+const numCPUs = cpus().length;
+
+app.use(compression());
+
+if (cluster.isPrimary) {
+  console.log(`Proceso Primario:  ${process.pid} está corriendo`);
+  console.log(`Numero de nucleos : ${numCPUs}`);
+
+   // Trabajadores.
+for (let i = 0; i < numCPUs; i++) {
+     
+   }
+
+  //  cluster.on('exit', (worker, code, signal) => {
+  //        console.log(`worker ${worker.process.pid} died`);
+//   });
+  } else {
+    cluster.fork();
+    cluster.on('exit', (worker, code, signal) => {
+   console.log(`Worker ${process.pid} started`);
+ })
+}
+
+//---------------------------------------------------------
+
+
+const args = minimist(process.argv.slice(2), []);
+
+///env mongo///
+const urlMongoDB = process.env.URLMONGODB;
+
+
+
+
+//--CONFIGURACION Y CONEXION A MONGODB USUARIOS
 mongoose.set("strictQuery", false);
 const UserSchema = new mongoose.Schema(
   {
@@ -32,20 +84,6 @@ const UserSchema = new mongoose.Schema(
 );
 
 const model = mongoose.model("users", UserSchema);
-
-mongoose.connect('mongodb+srv://pablo:pablo@cluster0.glswgtz.mongodb.net/?retryWrites=true&w=majority', {
-  serverSelectionTimeoutMS: 5000,
-}).then(()=>{
-  console.log('Base de datos en MongoDB conectada');
-}).catch((error)=>{
-  console.log(`Error al conectarse a la base de datos: ${error}`);
-})
-
-const app = express();
-const server = createServer(app);
-const io = new Server(server);
-const apiProdsSQL = new ApiProdsSQL();
-const apiMsjMongoDB = new ApiMsjMongoDB();
 
 //PRODUCTOS - MariaDB
 // CORROBORA SI EXISTE LA TABLA "PRODUCTOS", SI NO EXISTE, LA CREA.
@@ -67,8 +105,7 @@ app.use(express.static("views/layouts"));
 app.use(
   session({
     store: MongoStore.create({
-      mongoUrl:
-      'mongodb+srv://pablo:pablo@cluster0.glswgtz.mongodb.net/?retryWrites=true&w=majority',
+      mongoUrl: urlMongoDB,
     }),
     secret: "secret-key",
     resave: false,
@@ -116,29 +153,33 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser( async (id, done) => {
   console.log('deserializeUser ejecutado');
 
-  //----1----
-  // model.findById(id, (err, user) =>{
-  //   done(err, user)
-  // })
-
-  //----2----
   try{
     const user = await model.findById(id)
     done(null, user)
   }catch(err){
     done(err)
   }
-
-  //----3----
-  // (async ()=>{
-  //   try{
-  //     const user = await model.findById(id)
-  //     return user
-  //   } catch (err) {
-  //     return err
-  //   }
-  // })()
 });
+
+
+
+//GZIP
+
+function Informacion() {
+  return ("Hola que tal...!!! Como te fue durante esta semana en la escuela...???");
+}
+
+
+const str = Informacion();
+const strGZIP = compression();
+
+app.get('/info', (req, res)=>{
+  res.end(`Informacion sin compresion: ${str}. Informacion con compresion: ${strGZIP(str)}`)
+})
+
+
+
+//-----------------------------------
 
 
 //LOGIN
@@ -151,21 +192,6 @@ app.post("/login", passport.authenticate('login', {
   failureRedirect: '/faillogin'
 }));
 
-// ASIGNA UN REQ.SESSION.USERNAME EN OTRA RUTA YA QUE EN EL METODO POST "/LOGIN" AUTENTIFICO.
-// app.post("/login", passport.authenticate('login', {
-//   failureRedirect: '/faillogin'
-// }), (req, res)=>{
-//   const {email} = req.body
-//   res.redirect('/setname/' + email)
-// });
-
-// app.get('/setname/:email', (req, res)=>{
-//   req.session.email = req.params.email
-//   console.log(`Email 1: ${req.params.email}`);
-//   console.log(`Email 2: ${req.session.email}`);
-//   res.redirect('/')
-// })
-
 
 //REGISTER
 app.get("/register", (req, res) => {
@@ -173,37 +199,43 @@ app.get("/register", (req, res) => {
 });
 
 app.post("/register", (req, res) => {
-
+  
   const {name, email, password} = req.body
 
   const user = {username: name, email: email, password: password}
 
   async function RegisterUser(password) {
-
     try {
-
-      let users = await model.find({});
-      
-      if( users.some( u => u.email == user.email) ){
-  
-        console.log('El usuario ya existe');
-
-        res.redirect("/failregister");
-
-      } else {
-
-        user.password = password
-        const newUser = new model(user);
-        await newUser.save();
-        console.log('Usuario registrado con exito');
-        res.redirect("/login");
+      await mongoose.connect(urlMongoDB, {
+        serverSelectionTimeoutMS: 1000,
+      });
+      try {
+        let users = await model.find({});
+        if (users.some((u) => u.email == user.email)) {
+          console.log("El usuario ya existe");
+          res.redirect("/failregister");
+        } else {
+          user.password = password;
+          const newUser = new model(user);
+          await newUser.save();
+          console.log("Usuario registrado con exito");
+          res.redirect("/login");
+        }
+      } catch (error) {
+        console.log(
+          `Error en la query de la base de datos, en funcion RegisterUser: ${error}`
+        );
       }
-
-    } catch (error) {
-      console.log(`Error en la query de la base de datos, en funcion RegisterUser: ${error}`);
+    } catch (err) {
+      console.log(
+        `Error al conectar la base de datos en el "deserializeUser": ${err}`
+      );
+    } finally {
+      mongoose.disconnect().catch((err) => {
+        throw new Error("error al desconectar la base de datos");
+      });
     }
-
-  };
+  }
 
   //ENCRIPTO LA CONTRASEÑA
   const saltRounds = 10;
@@ -299,11 +331,42 @@ app.post("/logout", (req, res) => {
     }
   });
 });
+////// PROCESS ///////
+app.get("/info", (req, res) => {
+  const info = {
+    args: args._[0] || args["port"] || args["p"] || JSON.stringify(args),
+    platform: process.platform,
+    version: process.version,
+    memory: process.memoryUsage().rss,
+    path: process.cwd(),
+    pid: process.pid,
+    folder: path.dirname(new URL(import.meta.url).pathname),
+  };
+
+  res.render("info", { info });
+});
+
+////CHILD PROCESS
+app.get("/api/randoms", (req, res) => {
+  const cant = Number(req.query.cant) || 10e7;
+
+  const child = fork("./api/apiRandoms.js");
+
+  child.send(cant);
+  
+  child.on("message", (result) => {
+
+    res.json(result)
+
+  });
+});
+
 
 //SERVIDOR
 // ----------------------------------------------|
 
-const PORT = 8080;
+
+const PORT = args._[0] || args["port"] || args["p"] || 8080;
 
 const srv = server.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${srv.address().port}`);
@@ -312,4 +375,3 @@ const srv = server.listen(PORT, () => {
 server.on("error", (error) => {
   console.log(`Error en servidor: ${error}`);
 });
- 
