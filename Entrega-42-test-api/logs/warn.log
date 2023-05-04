@@ -1,0 +1,4 @@
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /favicon.ico que no existe","timestamp":"2023-05-04T02:31:48.278Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/1681994775029-be3db0c9a10b49c116e26357abfe9be9.jpg que no existe","timestamp":"2023-05-04T02:32:41.909Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /js/carts.js que no existe","timestamp":"2023-05-04T02:32:42.228Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /js/prods.js que no existe","timestamp":"2023-05-04T02:32:42.259Z"}
