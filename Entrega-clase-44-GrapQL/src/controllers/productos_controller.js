@@ -2,7 +2,7 @@ import productos_repository from "../repository/productos_repository.js"
 import { graphqlHTTP } from 'express-graphql';
 import { buildSchema } from 'graphql'
 
-const typeDefs = buildSchema(`
+export const typeDefs = buildSchema(`
   type Producto {
     _id: ID!
     title: String
@@ -44,6 +44,7 @@ const resolvers = {
   },
 };
 
+export default  resolvers;
 
 
 

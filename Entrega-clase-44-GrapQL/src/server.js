@@ -21,7 +21,7 @@ import  {urlMongoDB}  from "./config/dotenv_config.js"
 import mongoose from "mongoose";
 import getConnectionMongoDB from "./DB/connection.js";
 import bodyParser from "body-parser";
-
+import { productosql } from "./router/products_router.js";
 const connection = getConnectionMongoDB();
 await connection.MongoDB_Connect();
 
@@ -36,7 +36,7 @@ const server = createServer(app);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-
+app.use('/graphql', productosql)
 //MOTOR DE PLANTILLA
 app.engine(
   "hbs",
