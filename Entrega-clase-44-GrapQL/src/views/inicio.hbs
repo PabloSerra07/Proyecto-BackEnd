@@ -1,0 +1,51 @@
+
+<div class="container mt-3">
+    <div id="UserContainer">
+        <div class="d-flex jumbotron py-2 align-items-center justify-content-between" style="background-color:gray;">
+            <div class="d-flex flex-column w-25">
+                <h3 class="align-self-center">
+                    <strong>{{toRender.username}}</strong>
+                </h3>
+               <img 
+                    {{#if toRender.hostBoolean}}
+                    src="{{toRender.protocol}}://{{toRender.host}}:{{toRender.port}}{{toRender.image}}"
+                    {{else}}
+                    src="{{toRender.protocol}}s://{{toRender.host}}{{toRender.image}}"
+                    {{/if}}
+                    alt="avatar de {{toRender.username}}" 
+                    class="w-50 bg-white align-self-center"
+                >
+            </div>
+            <ul class="mr-5">
+                <h3 class="text-decoration-underline">Informacion del Perfil:</h2>
+                <li>Email: {{toRender.email}}</li>
+                <li>Edad: {{toRender.age}}</li>
+                <li>Dirección: {{toRender.address}}</li>
+                <li>Telefono: {{toRender.phone_number}}</li>
+                <li id="IDcontainer" class="d-none">{{toRender._id}}</li>
+                <li id="IDcartUser" class="d-none">{{toRender.cartID}}</li>
+            </ul>
+            <form action="/session/logout" method="post" class="align-self-center">
+                <input type="submit" class="btn btn-warning" id="btnLogOut" value="Desloguear">
+            </form>
+        </div>
+    </div>
+
+    <div class="jumbotron">
+        <h2 class="mb-5">Productos:</h2>
+        <div class="row d-flex justify-content-center" id="ProdContainer"></div>
+    </div>
+
+    <div class="jumbotron">
+        <h2 class="mb-5">Carrito:</h2>
+            <div class="table-responsive" id="CartContainer">
+                <table class="table table-dark" id="tableCartContainer">
+                </table>
+            </div>
+            <button id="newOrder" class="btn btn-success mt-2">Enviar orden</button>
+    </div>
+    
+</div>    
+
+<script type="module" src="../js/carts.js"></script>
+<script type="module" src="../js/prods.js"></script>
