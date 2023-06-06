@@ -1,0 +1,15 @@
+<div id="loginContainer" class="container">
+    <div class="jumbotron py-3 mt-5">
+        <h1 style="color:blue;">LOGIN DE USUARIO</h1>
+        <form action="/session/login" method="post" class="my-4">
+            <input type="email" class="form-control mb-2" name="email" placeholder="email" required>
+            <input type="text" class="form-control" name="password" placeholder="password" required>
+            <input type="submit" class="btn btn-success mt-4" value="Ingresar">
+        </form>
+        <div class="border-top border-dark">
+            <form action="/session/register" method="GET">
+                <input type="submit" class="btn btn-success mt-3" value="ir a Register">
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /favicon.ico que no existe","timestamp":"2023-06-05T12:44:23.558Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T12:44:55.453Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T12:51:51.781Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T12:52:23.563Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T13:05:10.645Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-06-05T13:05:10.670Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T13:08:55.226Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-06-05T13:08:55.851Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-06-05T13:09:00.460Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/icon-trash.png que no existe","timestamp":"2023-06-05T13:09:00.463Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/icon-trash.png que no existe","timestamp":"2023-06-05T13:09:11.175Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-06-05T13:09:11.178Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T13:20:43.654Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-06-05T13:20:43.903Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-06-05T13:20:45.455Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T13:28:46.626Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-06-05T13:28:46.823Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/deleted.jpg que no existe","timestamp":"2023-06-05T13:28:46.870Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T13:29:16.027Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-06-05T13:29:16.215Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T13:31:48.073Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-06-05T13:31:48.316Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-06-05T13:32:03.104Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T13:37:04.566Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T13:37:30.792Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T13:38:05.300Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T13:38:17.718Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T13:38:24.657Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T13:38:31.691Z"}
+{"level":"error","message":"Error en la creación de nueva orden: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T13:38:35.019Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-06-05T13:55:40.754Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T19:14:53.482Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T19:19:06.205Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T19:19:09.636Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T19:19:44.830Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T19:19:54.862Z"}
+{"level":"error","message":"Error en la creación de nueva orden: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T19:21:43.212Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /favicon.ico que no existe","timestamp":"2023-06-05T19:36:00.653Z"}

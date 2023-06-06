@@ -2,3 +2,15 @@
 {"level":"error","timestamp":"2023-04-20T12:49:13.479Z"}
 {"level":"warn","message":"Se ha recibido una petición GET en la ruta /favicon.ico que no existe","timestamp":"2023-04-25T00:13:25.162Z"}
 {"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-05-01T23:15:47.553Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-05-22T22:06:04.335Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-05-22T22:06:04.970Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-05-22T22:06:16.187Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/icon-trash.png que no existe","timestamp":"2023-05-22T22:06:16.193Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-05-22T22:11:03.080Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/icon-trash.png que no existe","timestamp":"2023-05-22T22:11:03.082Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-05-22T22:11:04.481Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/icon-trash.png que no existe","timestamp":"2023-05-22T22:11:04.488Z"}
+{"level":"error","timestamp":"2023-05-22T22:11:06.617Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /images/default.png que no existe","timestamp":"2023-05-22T22:30:26.306Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-05-22T22:30:26.597Z"}
+{"level":"warn","message":"Se ha recibido una petición GET en la ruta /undefined que no existe","timestamp":"2023-05-23T12:14:15.590Z"}

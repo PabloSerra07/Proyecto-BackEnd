@@ -1,0 +1,9 @@
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T13:38:17.718Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T13:38:24.657Z"}
+{"level":"error","message":"Error en la creación de nueva orden: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T13:38:35.019Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T19:14:53.482Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T19:19:06.205Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T19:19:09.636Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T19:19:44.830Z"}
+{"level":"error","message":"Error al insertar un producto en el carrito: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T19:19:54.862Z"}
+{"level":"error","message":"Error en la creación de nueva orden: TypeError: Cannot read properties of null (reading 'products')","timestamp":"2023-06-05T19:21:43.212Z"}
